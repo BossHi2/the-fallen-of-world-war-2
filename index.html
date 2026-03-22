@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shadows+Into+Light&family=Texturina:ital,opsz,wght@0,12..72,100..900;1,12..72,100..900&display=swap" rel="stylesheet">
+    
+</head>
+<body>
+    <div id="page1" class="intro-wrapper pages">
+        <h1 class="text texturina">Inspired by <a href="https://www.youtube.com/watch?v=DwKPFT-RioU">The Fallen of World War II</a></h1>
+        <button class="texturina" onclick="changePages('page1', 'page2')">Begin Experience</button>
+    </div>
+    
+    <div id="page2" class="intro-wrapper pages page-closed" style="display: none;">
+        <h1 class="text texturina">2</h1>
+        <button class="texturina" onclick="changePages('page2', 'page1')">go back</button>
+    </div>
+    <script src="script.js"></script>
+    
+</body>
+</html>

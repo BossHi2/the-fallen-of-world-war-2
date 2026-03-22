@@ -1,0 +1,81 @@
+body{
+    background-color: #000506;
+    height: 100vh;
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+
+html, body{
+    padding: 0px;
+    margin: 0px;
+}
+
+.text{
+    color: white;
+}
+
+.intro-wrapper{
+   position: relative;
+   top: 50%;
+   transform: translate(0,-50%);
+   text-align: center;
+}
+
+.pages{
+    transition: opacity 1s ease;
+    opacity: 1;
+    animation-fill-mode: forwards;
+}
+
+
+.page-closed{
+    opacity: 0;
+}
+
+.pages.animate-out{
+    opacity: 0;
+}
+
+.pages.animate-in{
+    opacity: 1;
+}
+
+.intro-wrapper a{
+    color: #4F7379;
+    transition: 250ms;
+}
+
+.intro-wrapper a:hover{
+    color: white;
+}
+
+.intro-wrapper button{
+    height: 30px;
+    padding: 20px;
+    border-radius: 5px;
+    border: none;
+    color: white;
+    background-color: #385A5C;
+    transition: 250ms;
+    line-height: 0px;
+}
+
+.intro-wrapper button:hover{
+    cursor: pointer;
+    background-color: white;
+    color: #385A5C;
+}
+
+.texturina{
+  font-family: "Texturina", serif;
+  font-optical-sizing: auto;
+  font-weight: 5px;
+  font-style: normal;
+}
+
+/*colors:
+#385A5C <- darker blue
+#4F7379 <- lighter blue
+#E5D098 <- darker yellow
+#FEF2AB <- lighter yellow
+/*
