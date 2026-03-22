@@ -23,20 +23,10 @@ html, body{
 
 .pages{
     transition: opacity 1s ease;
-    opacity: 1;
-    animation-fill-mode: forwards;
-}
-
-
-.page-closed{
     opacity: 0;
 }
 
-.pages.animate-out{
-    opacity: 0;
-}
-
-.pages.animate-in{
+.page-opened{
     opacity: 1;
 }
 
@@ -71,6 +61,62 @@ html, body{
   font-optical-sizing: auto;
   font-weight: 5px;
   font-style: normal;
+}
+
+
+
+
+
+
+.events::before{
+    content:"";
+    position: absolute;
+    height: 10px;
+    top: 10vh;
+    width: 100%;
+    background: rgb(255, 255, 255);
+}
+.events{
+    position: relative;
+    margin: .5em;
+    display: flex;
+    flex-direction: row;
+    row-gap: 1em;
+}
+.content time{
+    font-weight: bold;
+}
+
+.event-wrapper{
+    display: flex;
+    align-items:baseline;
+    position: absolute;
+}
+.event-wrapper .marker{
+    position: absolute;
+    top: calc(10vh - 10px);
+    fill: white;
+}
+.content{
+    position: relative;
+    top: calc(10vh - 30px);
+    left: -6px;
+}
+.event-wrapper p{
+    margin-top: 30px;
+    width: 70px;
+    font-size: 15px;
+}
+#page2{
+    height: 100vh;
+}
+#page2 .intro-wrapper{
+    align-items: center;
+    top: 40%;
+}
+
+.highlight{
+    color: #FEF2AB;
 }
 
 /*colors:
