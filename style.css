@@ -2,7 +2,7 @@ body{
     background-color: #000506;
     height: 100vh;
     overflow-x: hidden;
-    overflow-y: hidden;
+    overflow-y: scroll;
 }
 
 html, body{
@@ -111,8 +111,29 @@ html, body{
     height: 100vh;
 }
 #page2 .intro-wrapper{
-    align-items: center;
+    text-align: left;
+    padding-left: 15%;
     top: 40%;
+}
+#veteran-count{
+    min-width: 175px;
+    display: inline-block;
+    text-align: center;
+}
+#veteran-alive-count{
+    min-width: 100px;
+    display: inline-block;
+    text-align: center;
+}
+#holocaust-count{
+    min-width: 160px;
+    display: inline-block;
+    text-align: center;
+}
+#holocaust-alive-count{
+    min-width: 110px;
+    display: inline-block;
+    text-align: center;
 }
 
 .highlight{

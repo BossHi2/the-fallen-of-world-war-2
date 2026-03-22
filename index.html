@@ -16,7 +16,7 @@
         <button class="texturina" onclick="changePages('page1', 'page2')">Begin Experience</button>
     </div>
     
-    <div id="page2" class="pages" style="display: none;">
+    <div id="page2" class="pages" style="display: none;"> <!-- -->
         <h1 class="text texturina" style="text-align: center;">The Deaths of the Leaders of WW2</h1>
         
         <div class="timeline">
@@ -111,10 +111,14 @@
 
 
         <div class="intro-wrapper">
-            <h1 class="text texturina">Out of <span class="highlight">16.4 million</span> American WW2 veterans, only <span class="highlight">45,418</span> are still alive today.</h1>
+            <h1 class="text texturina">Out of the <span class="highlight" id="veteran-count">16.4 million</span> American WW2 veterans, only <span class="highlight" id="veteran-alive-count">45,418</span> are still alive today.</h1>
+
+            <h1 class="text texturina">Out of the <span class="highlight" id="holocaust-count">3.5 million</span> Holocaust survivors, only <span class="highlight" id="holocaust-alive-count">196,600</span> are still alive today.</h1>
         </div>
-        
+
+        <h1 class="text texturina intro-wrapper" style="padding-right:20%; top: 60%;">By the year 2043, the last US World War 2 veteran will pass away. As the number of people who lived through World War 2 will reach zero in about two decades, it is crucial that we <span class="highlight"> document and remember the true horror of the war.</span></h1>
     </div>
+        
     <script src="script.js"></script>
     
 </body>
