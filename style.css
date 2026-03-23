@@ -10,6 +10,10 @@ html, body{
     margin: 0px;
 }
 
+#page1{
+    overflow-y: hidden;
+}
+
 .text{
     color: white;
 }
@@ -114,6 +118,7 @@ html, body{
     text-align: left;
     padding-left: 15%;
     top: 40%;
+    padding-right:20%;
 }
 #veteran-count{
     min-width: 175px;
@@ -138,6 +143,21 @@ html, body{
 
 .highlight{
     color: #FEF2AB;
+}
+.wavy {
+    width: 100vw;
+    position: absolute;
+    left: -10px;
+    height: 50px;
+  clip-path: shape(from 0 0,vline to calc(100% - 25px),curve to 5.36% calc(100% - 7.5px) with 3.57% calc(100% - 1px),curve to 8.93% calc(100% - 26px) with 7.14% calc(100% - 14px),curve to 12.5% calc(100% - 43px) with 10.71% calc(100% - 38px),curve to 16.07% calc(100% - 28px) with 14.29% calc(100% - 48px),curve to 19.64% calc(100% - 15px) with 17.86% calc(100% - 8px),curve to 23.21% calc(100% - 21px) with 21.43% calc(100% - 22px),curve to 26.79% calc(100% - 13.5px) with 25% calc(100% - 20px),curve to 30.36% calc(100% - 28.5px) with 28.57% calc(100% - 7px),curve to 33.93% calc(100% - 44px) with 32.14% calc(100% - 50px),curve to 37.5% calc(100% - 36px) with 35.71% calc(100% - 38px),curve to 41.07% calc(100% - 25px) with 39.29% calc(100% - 34px),curve to 44.64% calc(100% - 10px) with 42.86% calc(100% - 16px),curve to 48.21% calc(100% - 14px) with 46.43% calc(100% - 4px),curve to 51.79% calc(100% - 29px) with 50% calc(100% - 24px),curve to 55.36% calc(100% - 38.5px) with 53.57% calc(100% - 34px),curve to 58.93% calc(100% - 38px) with 57.14% calc(100% - 43px),curve to 62.5% calc(100% - 24.5px) with 60.71% calc(100% - 33px),curve to 66.07% calc(100% - 14.5px) with 64.29% calc(100% - 16px),curve to 69.64% calc(100% - 17px) with 67.86% calc(100% - 13px),curve to 73.21% calc(100% - 35px) with 71.43% calc(100% - 21px),curve to 76.79% calc(100% - 40px) with 75% calc(100% - 49px),curve to 80.36% calc(100% - 36px) with 78.57% calc(100% - 31px),curve to 83.93% calc(100% - 30px) with 82.14% calc(100% - 41px),curve to 87.5% calc(100% - 34.5px) with 85.71% calc(100% - 19px),curve to 91.07% calc(100% - 42.5px) with 89.29% calc(100% - 50px),curve to 94.64% calc(100% - 30px) with 92.86% calc(100% - 35px),curve to 100% calc(100% - 25px) with 96.43% calc(100% - 25px),vline to 0, hline to 0);
+}
+
+.wavy-top {
+  clip-path: shape(from 0 100%,vline to 25px,curve to 5.36% 7.5px with 3.57% 1px,curve to 8.93% 26px with 7.14% 14px,curve to 12.5% 43px with 10.71% 38px,curve to 16.07% 28px with 14.29% 48px,curve to 19.64% 15px with 17.86% 8px,curve to 23.21% 21px with 21.43% 22px,curve to 26.79% 13.5px with 25% 20px,curve to 30.36% 28.5px with 28.57% 7px,curve to 33.93% 44px with 32.14% 50px,curve to 37.5% 36px with 35.71% 38px,curve to 41.07% 25px with 39.29% 34px,curve to 44.64% 10px with 42.86% 16px,curve to 48.21% 14px with 46.43% 4px,curve to 51.79% 29px with 50% 24px,curve to 55.36% 38.5px with 53.57% 34px,curve to 58.93% 38px with 57.14% 43px,curve to 62.5% 24.5px with 60.71% 33px,curve to 66.07% 14.5px with 64.29% 16px,curve to 69.64% 17px with 67.86% 13px,curve to 73.21% 35px with 71.43% 21px,curve to 76.79% 40px with 75% 49px,curve to 80.36% 36px with 78.57% 31px,curve to 83.93% 30px with 82.14% 41px,curve to 87.5% 34.5px with 85.71% 19px,curve to 91.07% 42.5px with 89.29% 50px,curve to 94.64% 30px with 92.86% 35px,curve to 100% 25px with 96.43% 25px,vline to 100%, hline to 0);
+        width: 100vw;
+    position: absolute;
+    left: -10px;
+    height: 50px;
 }
 
 /*colors:

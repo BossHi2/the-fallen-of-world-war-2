@@ -29,10 +29,10 @@ var span2Interval
 var span3Interval
 var span4Interval
 
-var span1 = document.getElementById("page2").getElementsByTagName("span")[0]
-var span2 = document.getElementById("page2").getElementsByTagName("span")[1]
-var span3 = document.getElementById("page2").getElementsByTagName("span")[2]
-var span4 = document.getElementById("page2").getElementsByTagName("span")[3]
+var span1 = document.getElementById("page2").getElementsByTagName("span")[2]
+var span2 = document.getElementById("page2").getElementsByTagName("span")[3]
+var span3 = document.getElementById("page2").getElementsByTagName("span")[4]
+var span4 = document.getElementById("page2").getElementsByTagName("span")[5]
 
 var span1Total = 16.4
 var span2Total = 45418
@@ -43,6 +43,11 @@ var currSpan2 = 0
 var currSpan3 = 0
 var currSpan4 = 0
 
+var didReadFirstSection = false
+var didReadSecondSection = false
+var didReadThirdSection = false
+
+
 function makeTimeline(){
     var events = document.getElementsByClassName("event-wrapper")
 
@@ -52,10 +57,10 @@ function makeTimeline(){
         events[i].style.left = ((document.body.clientWidth - 50)/(2026-1945)) * (date-1945) + "px"
     }
 
-    span1Interval = setInterval(span1Anim, 25)
-    span2Interval = setInterval(span2Anim, 1)
-    span3Interval = setInterval(span3Anim, 50)
-    span4Interval = setInterval(span4Anim, 1)
+    
+    
+
+    window.addEventListener('scroll', page2Scroll)
 }
 
 
@@ -99,10 +104,42 @@ function span4Anim(){
     if(currSpan4 < span4Total){
         span4.innerHTML = currSpan4.toLocaleString()
         
-        currSpan4 += 202
+        currSpan4 += 402
     } else{
         span4.innerHTML = "196,000"
         clearInterval(span4Interval)
+    }
+}
+
+function page2Scroll(){
+    if(window.scrollY == 0){
+        didReadFirstSection = false
+        didReadSecondSection = false
+        didReadThirdSection = false
+    }
+    //1040. 2184, 3393
+    if(window.scrollY > 400 && didReadFirstSection == false){
+        didReadFirstSection = true
+        window.scrollTo( {top: 1040,
+            behavior: "smooth"
+        })
+
+        span1Interval = setInterval(span1Anim, 25)
+        span2Interval = setInterval(span2Anim, 1)
+    }
+    if(window.scrollY > 1200 && didReadSecondSection == false){
+        didReadSecondSection = true
+        window.scrollTo( {top: 2184,
+            behavior: "smooth"
+        })
+        span3Interval = setInterval(span3Anim, 50)
+        span4Interval = setInterval(span4Anim, 1)
+    }
+    if(window.scrollY > 2384 && didReadThirdSection == false){
+        didReadThirdSection = true
+        window.scrollTo( {top: 3393,
+            behavior: "smooth"
+        })
     }
 }
 
