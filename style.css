@@ -18,7 +18,7 @@ html, body{
     color: white;
 }
 
-.intro-wrapper{
+.center-item{
    position: relative;
    top: 50%;
    transform: translate(0,-50%);
@@ -34,16 +34,16 @@ html, body{
     opacity: 1;
 }
 
-.intro-wrapper a{
+.center-item a{
     color: #4F7379;
     transition: 250ms;
 }
 
-.intro-wrapper a:hover{
+.center-item a:hover{
     color: white;
 }
 
-.intro-wrapper button{
+.center-item button{
     height: 30px;
     padding: 20px;
     border-radius: 5px;
@@ -54,7 +54,7 @@ html, body{
     line-height: 0px;
 }
 
-.intro-wrapper button:hover{
+.center-item button:hover{
     cursor: pointer;
     background-color: white;
     color: #385A5C;
@@ -114,7 +114,7 @@ html, body{
 #page2{
     height: 100vh;
 }
-#page2 .intro-wrapper{
+#page2 .center-item{
     text-align: left;
     padding-left: 15%;
     top: 40%;
@@ -158,6 +158,87 @@ html, body{
     position: absolute;
     left: -10px;
     height: 50px;
+}
+#page2 button{
+    top: -100px;
+    position: relative;
+    left: 50%;
+    transform: translate(-50%);
+}
+
+
+#page3{
+    background-position-y: -25px;
+    background-position-x: -25px;
+    background-size: 50px 50px;
+    background-image:
+        linear-gradient(to right, #171717 1px, transparent 1px),
+        linear-gradient(to bottom, #171717 1px, transparent 1px);  
+    height: calc(8388px + 1000px);  
+}
+.us-deaths{
+    background-color: #385a5c3b;
+    width: 80vw;
+    height: 8388px;
+    left: 10vw;
+    position: relative;
+}
+
+.us-deaths .us-deaths-count-wrapper{ 
+    position: absolute; 
+    color: #000000;
+    background-color: rgb(255, 255, 255);
+    width: max-content;
+    height: max-content;
+    padding: 10px;
+    left: 50%;
+    transform: translate(-50%);
+
+    border-radius: 15px;
+}
+.us-deaths .line{
+    width: 100%; 
+    height: 1px; 
+    background-color: white;
+}
+.us-deaths-count-wrapper h2{
+    text-align: center;
+    width: 100%;
+    position: absolute;
+}
+
+.scroll-line{
+    left: -10vw;
+    width: 110vw;
+    height: 1px; 
+    background-color: #ffffff;
+    position:fixed;
+}
+.scroll-death-count h2{
+    left: .2vw;
+    position: fixed;
+    color: #000000;
+    max-width: 10vw;
+}
+.scroll-death-count{
+    left: 0;
+    position: fixed;
+    background-color: rgb(255, 255, 255);
+    width: 10vw;
+    height: 85px;
+    z-index: -1;
+}
+.scroll-wrapper{
+    width: 80vw; 
+    height: 50px;
+    position:fixed;
+}
+
+#canvas{
+    position: absolute;
+    display: block;
+    z-index: 1;
+    top: 0;
 }
 
 /*colors:

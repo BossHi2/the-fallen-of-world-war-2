@@ -11,12 +11,12 @@
     
 </head>
 <body>
-    <div id="page1" class="intro-wrapper pages page-opened">
+    <!--<div id="page1" class="center-item pages page-opened">
         <h1 class="text texturina">Inspired by <a href="https://www.youtube.com/watch?v=DwKPFT-RioU">The Fallen of World War II</a></h1>
         <button class="texturina" onclick="changePages('page1', 'page2')">Begin Experience</button>
     </div>
     
-    <div id="page2" class="pages" style="display: none;"> <!-- -->
+    <div id="page2" class="pages" style="display: none;"> 
         <h1 class="text texturina" style="text-align: center;">The Deaths of WW2 Leaders</h1>
         
         <div class="timeline">
@@ -109,7 +109,7 @@
             
         </div>
 
-        <div class="intro-wrapper" style="position: relative; height: 1400px; top:1000px;">
+        <div class="center-item" style="position: relative; height: 1400px; top:1000px;">
             <h1 class="text texturina">
             There are merely two World War II leaders alive today: <span class="highlight">Tenzin Gyatso of Tibet</span> and <span class="highlight">Simeon II of Bulgaria</span> 
             </h1>
@@ -117,14 +117,14 @@
         
 
         
-        <div class="intro-wrapper" style="width: 100%; height: 1200px; top: 0;  position: relative; background-image: url('Raising_a_flag_over_the_Reichstag.jpg'); background-position: 0 -500px;">
+        <div class="center-item" style="width: 100%; height: 1200px; top: 0;  position: relative; background-image: url('Raising_a_flag_over_the_Reichstag.jpg'); background-position: 0 -500px;">
             <div class="wavy" style="background-color: black;"></div>
 
             <h1 class="text texturina" style="line-height: 1200px;">Out of the <span class="highlight" id="veteran-count">16.4 million</span> American WW2 veterans, only <span class="highlight" id="veteran-alive-count">45,418</span> are still alive today.</h1>
         </div>
         
 
-        <div class="intro-wrapper" style="width: 100%; height: 1200px; position: relative; top: -20px; background-image: url('Selection_on_the_ramp_at_Auschwitz-Birkenau.jpg'); background-position: 0 -50px;">
+        <div class="center-item" style="width: 100%; height: 1200px; position: relative; top: -20px; background-image: url('Selection_on_the_ramp_at_Auschwitz-Birkenau.jpg'); background-position: 0 -50px;">
             <div class="wavy-top" style="background-image: url('Selection_on_the_ramp_at_Auschwitz-Birkenau.jpg'); top: -50px;"></div>
             <h1 class="text texturina" style="line-height: 1200px;">Out of the <span class="highlight" id="holocaust-count">3.5 million</span> Holocaust survivors, only <span class="highlight" id="holocaust-alive-count">196,600</span> are still alive today.</h1>
             <div class="wavy-top" style="background-color: rgb(0, 0, 0); bottom: 0px;"></div>
@@ -134,16 +134,50 @@
 
         <div id="last-element" style="display: flex; flex-direction: column;">
             
-            <div class="intro-wrapper" style=" top: -50px;">
+            <div class="center-item" style=" top: -50px;">
                 
-                <h1 class="text texturina" >By the year 2043, the last US World War 2 veteran will pass away. As the number of people who lived through World War 2 will reach zero in under two decades, it is crucial that we <span class="highlight"> document and remember the true horror of the war.</span></h1>
+                <h1 class="text texturina" >The Department of Veterans Affairs estimates that the last US World War 2 veteran will pass away in 2043. As the number of people who lived through World War 2 will reach zero in under two decades, it is crucial that we <span class="highlight"> document and remember the true horror of the war.</span></h1>
             </div>
 
-
+            <div class="button-wrapper center-item">
+                <button class="texturina" onclick="changePages('page2', 'page3')">Next</button>
+            </div>
             <div class="spacer" style="height: 200px; position: relative; bottom: -10px;"></div>
         </div>
         
+        
+        
+    </div> -->
 
+    <div id="page3" class="pages page-opened"> <!--style="display: none;"  -->
+        <h1 class="text texturina" style="text-align: center;">US Deaths</h1>
+        <canvas id="canvas"></canvas>
+
+        <h2 class="text texturina" style="text-align: center;"><span class="highlight">419,400</span> Americans died in World War 2. For reference, if 1 pixel represents 50 people...</h2>
+        <div class="us-deaths">
+            <div class="scroll-wrapper">
+                <div class="scroll-line"></div>
+                <div class="scroll-death-count"><h2 class="text texturina">0 deaths</h2></div>
+            </div>
+
+            <div class="us-deaths-count-wrapper texturina" style="top: 54px;">
+                2,700 Americans died on Omaha Beach
+            </div>
+
+            
+            
+            <div class="us-deaths-count-wrapper texturina" style="top: 242px; left: 30%;">
+                12,100 civilians died due to military activity or crimes against humanity 
+            </div>
+
+            <div class="us-deaths-count-wrapper texturina" style="top: 281.44px; left: 70%;">
+                14,072 Americans died as a prisoner of war
+            </div>
+
+            <div class="european-theatre-deaths us-deaths-count-wrapper texturina" style="top: 5000px;">
+                250,000 American soldiers died in the European theatre
+            </div>
+        </div>
     </div>
         
     <script src="script.js"></script>
