@@ -33,12 +33,13 @@ function changePages(from, to){
         page3Canvas = document.getElementById("canvas")
         ctx = page3Canvas.getContext("2d")
         page3Canvas.width = window.innerWidth
-        page3Canvas.height = window.innerHeight
+        page3Canvas.height = 9388 
+        window.scrollTo(0,0)
         init()
         animate()
         page3Canvas.addEventListener("mousemove", (e)=>{
             mouseX = e.clientX
-            mouseY = e.clientY
+            mouseY = e.clientY + window.scrollY
         })
         page3Canvas.addEventListener("mouseleave", (e)=>{
             mouseX = null
@@ -123,7 +124,7 @@ function span2Anim(){
     if(currSpan2 < span2Total){
         span2.innerHTML = currSpan2.toLocaleString()
         
-        currSpan2 += 52
+        currSpan2 += 304
     } else{
         span2.innerHTML = "45,418"
         clearInterval(span2Interval)
@@ -146,7 +147,7 @@ function span4Anim(){
     if(currSpan4 < span4Total){
         span4.innerHTML = currSpan4.toLocaleString()
         
-        currSpan4 += 402
+        currSpan4 += 1204
     } else{
         span4.innerHTML = "196,000"
         clearInterval(span4Interval)
@@ -189,11 +190,14 @@ function page2Scroll(){
 function usDeathCount(){
     var h2 = document.getElementsByClassName("scroll-death-count")[0].getElementsByTagName("h2")[0]
     var death
+    if(Math.round(window.scrollY*50) < 419400){
+        document.getElementsByClassName("scroll-wrapper")[0].style.display = "block"
+    }
     if(Math.round(window.scrollY*50) < 0)
         death = 0
     else if(Math.round(window.scrollY*50) > 419400){
         death = 419400
-        //do an animation where this transforms into text
+        document.getElementsByClassName("scroll-wrapper")[0].style.display = "none"
     }
     else
         death = Math.round(window.scrollY*50)
@@ -296,21 +300,52 @@ function animate(){
     requestAnimationFrame(animate)
 }
 
+var countryids = ["poland", "france", "yugoslavia", "germany", "uk", "soviet-union", "hungary", "romania", "italy", "us"]
+var currYear = 1939
+function displayFigures(countryid, numDead, src){
+    for(var i = 0; i<numDead/1000; i++){
+        var img = document.createElement("img")
+        img.src = src
+        document.getElementById(countryid).appendChild(img)
+    }
+}
+
+function clearFigures(countryid){
+    if(countryid == "all"){
+        for(var i = 0; i<countryids.length; i++){
+            document.getElementById(countryids[i]).innerHTML = ""
+        }
+    } else
+        document.getElementById(countryid).innerHTML = ""
+}
 
 
-//delete after finishing making page3
-page3Canvas = document.getElementById("canvas")
-ctx = page3Canvas.getContext("2d")
-page3Canvas.width = window.innerWidth
-page3Canvas.height = document.documentElement.scrollHeight
-window.addEventListener("scroll", usDeathCount)
-page3Canvas.addEventListener("mousemove", (e)=>{
-    mouseX = e.clientX
-    mouseY = e.clientY + window.scrollY
-})
-page3Canvas.addEventListener("mouseleave", (e)=>{
-    mouseX = null
-    mouseY = null
-})
-init()
-animate()
+function changeYear(amount){
+    currYear += amount
+    document.getElementById("year-counter").innerHTML = "Year: " + currYear
+    if(currYear <= 1939)
+        document.getElementsByClassName("back-button")[0].style.visibility = "hidden"
+    else if(currYear >= 1945)
+        document.getElementsByClassName("forward-button")[0].style.visibility = "hidden"
+    else{
+        document.getElementsByClassName("back-button")[0].style.visibility = ""
+        document.getElementsByClassName("forward-button")[0].style.visibility = ""
+    }
+
+    clearFigures("all")
+    if(currYear == 1939){
+        displayFigures("poland", 266000, "polish.png")
+        displayFigures("france", 2000, "polish.png")
+        displayFigures("germany",(17269 + 552), "polish.png")
+        displayFigures("soviet-union",(3000 + 5000 + 2000 + 4000 + 20000 + 10000 + 4500 + 100), "polish.png")
+    } else if(currYear == 1940){
+        displayFigures("poland", (358 + 7000 + 23000 + 11000 + 20000), "polish.png")
+        displayFigures("france", (85310), "polish.png")
+        displayFigures("germany", (5296 + 27074 + 5296), "polish.png")
+    }
+}
+
+
+//page 4
+changeYear(0)
+window.scrollTo(0,0)

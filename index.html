@@ -11,9 +11,11 @@
     
 </head>
 <body>
-    <!--<div id="page1" class="center-item pages page-opened">
+    <div id="page1" class="center-item pages page-opened">
         <h1 class="text texturina">Inspired by <a href="https://www.youtube.com/watch?v=DwKPFT-RioU">The Fallen of World War II</a></h1>
-        <button class="texturina" onclick="changePages('page1', 'page2')">Begin Experience</button>
+        <div class="button-wrapper">
+            <button class="texturina" onclick="changePages('page1', 'page2')">Begin Experience</button>
+        </div>
     </div>
     
     <div id="page2" class="pages" style="display: none;"> 
@@ -147,9 +149,9 @@
         
         
         
-    </div> -->
+    </div>
 
-    <div id="page3" class="pages page-opened"> <!--style="display: none;"  -->
+    <div id="page3" class="pages" style="display: none;">
         <h1 class="text texturina" style="text-align: center;">US Deaths</h1>
         <canvas id="canvas"></canvas>
 
@@ -178,7 +180,94 @@
                 250,000 American soldiers died in the European theatre
             </div>
         </div>
+
+
+
+        <h1 class="total-death-count text texturina">419,000 dead.</h1>
+        <div class="button-wrapper">
+            <button class="texturina" onclick="changePages('page3', 'page4')">Explore other countries</button>
+        </div>
+        
     </div>
+
+    <div id="page4" class="pages" style="display: none;"> <!---->
+        <h1 class="text texturina">1 figure = 1000 dead. </h1>
+
+        <h1 id="year-counter" class="text texturina">Year: 1939</h1>
+        <button class="texturina back-button" onclick="changeYear(-1)">Back 1 Year</button>
+        <button class="texturina forward-button" onclick="changeYear(1)">Forward 1 Year</button>
+
+        <div class="table-container">
+            <div class="label-wrapper">
+                <div class="country-label-holder">
+                    <h2 class="text texturina">Poland</h2>
+                </div>
+
+                <div class="country-label-holder">
+                    <h2 class="text texturina">France</h2>
+                </div>
+
+                <div class="country-label-holder">
+                    <h2 class="text texturina">Yugoslavia</h2>
+                </div>
+
+                <div class="country-label-holder">
+                    <h2 class="text texturina">Germany</h2>
+                </div>
+
+                <div class="country-label-holder">
+                    <h2 class="text texturina">UK</h2>
+                </div>
+
+                <div class="country-label-holder">
+                    <h2 class="text texturina">Soviet Union</h2>
+                </div>
+
+                <div class="country-label-holder">
+                    <h2 class="text texturina">Hungary</h2>
+                </div>
+
+                <div class="country-label-holder">
+                    <h2 class="text texturina">Romania</h2>
+                </div>
+
+                <div class="country-label-holder">
+                    <h2 class="text texturina">Italy</h2>
+                </div>
+                <div class="country-label-holder">
+                    <h2 class="text texturina">US</h2>
+                </div>
+            </div>
+
+            
+            
+            <div class="line"></div>
+
+            <div class="figure-wrapper">
+                <div id="poland" class="figure-holder"></div>
+
+                <div id="france" class="figure-holder"></div>
+
+                <div id="yugoslavia" class="figure-holder"></div>
+
+                <div id="germany" class="figure-holder"></div>
+
+                <div id="uk" class="figure-holder"></div>
+
+                <div id="soviet-union" class="figure-holder"></div>
+
+                <div id="hungary" class="figure-holder"></div>
+
+                <div id="romania" class="figure-holder"></div>
+
+                <div id="italy" class="figure-holder"></div>
+
+                <div id="us" class="figure-holder"></div>
+            </div>
+            
+        </div>
+        </div>
+        
         
     <script src="script.js"></script>
     

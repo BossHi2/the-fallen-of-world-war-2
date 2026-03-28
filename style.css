@@ -43,7 +43,7 @@ html, body{
     color: white;
 }
 
-.center-item button{
+.button-wrapper button{
     height: 30px;
     padding: 20px;
     border-radius: 5px;
@@ -52,9 +52,10 @@ html, body{
     background-color: #385A5C;
     transition: 250ms;
     line-height: 0px;
+    z-index: 1;
 }
 
-.center-item button:hover{
+.button-wrapper button:hover{
     cursor: pointer;
     background-color: white;
     color: #385A5C;
@@ -86,6 +87,9 @@ html, body{
     display: flex;
     flex-direction: row;
     row-gap: 1em;
+}
+.timeline{
+    padding-left: 10px;
 }
 .content time{
     font-weight: bold;
@@ -240,7 +244,45 @@ html, body{
     z-index: 1;
     top: 0;
 }
+#page3 .total-death-count{
+    font-size: 200px;
+    font-weight: 900;
+    text-align: center;
+    position: relative;
+}
+#page3 button{
+    left: 50%;
+    position: relative;
+    transform: translate(-50%);
+}
 
+
+#page4 .line{
+    height: 5px;
+    width: 100%;
+    background-color: white;
+}
+.figure-holder{
+    height: max-content;
+}
+.figure-holder img{
+    height: 20px;
+}
+.country-label-holder{
+    text-align: center;
+    
+}
+
+.label-wrapper{
+    display: grid;
+    grid-template-columns: 150px 150px 150px 150px 150px 150px 150px 150px 150px 150px;
+    gap: 20px;
+}
+.figure-wrapper{
+    display: grid;
+    grid-template-columns: 150px 150px 150px 150px 150px 150px 150px 150px 150px 150px;
+    gap: 20px;
+}
 /*colors:
 #385A5C <- darker blue
 #4F7379 <- lighter blue
