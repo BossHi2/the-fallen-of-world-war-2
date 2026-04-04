@@ -2,11 +2,14 @@
 var page3Canvas
 var ctx
 var particles = [];
+var particles2 = [];
 var numParticles = 1000
 var speedMult = 0.5
 var mouseX = null
 var mouseY = null
 var particleImg = "particle.png"
+
+document.getElementsByTagName("audio")[0].play()
 
 function changePages(from, to){
     const fromElem = document.getElementById(from)
@@ -30,23 +33,47 @@ function changePages(from, to){
     if(toElem.id == "page2"){
         makeTimeline()
     } if(toElem.id == "page3"){
-        page3Canvas = document.getElementById("canvas")
-        ctx = page3Canvas.getContext("2d")
-        page3Canvas.width = window.innerWidth
-        page3Canvas.height = 9388 
-        window.scrollTo(0,0)
-        init()
-        animate()
-        page3Canvas.addEventListener("mousemove", (e)=>{
-            mouseX = e.clientX
-            mouseY = e.clientY + window.scrollY
-        })
-        page3Canvas.addEventListener("mouseleave", (e)=>{
-            mouseX = null
-            mouseY = null
-        })
-        window.removeEventListener("scroll", page2Scroll)
-        window.addEventListener("scroll", usDeathCount)
+        setTimeout( ()=>{
+            page3Canvas = document.getElementById("canvas")
+            ctx = page3Canvas.getContext("2d")
+            page3Canvas.width = window.innerWidth
+            page3Canvas.height = 9588 
+            window.scrollTo(0,0)
+            init()
+            animate()
+            page3Canvas.addEventListener("mousemove", (e)=>{
+                mouseX = e.clientX
+                mouseY = e.clientY + window.scrollY
+            })
+            page3Canvas.addEventListener("mouseleave", (e)=>{
+                mouseX = null
+                mouseY = null
+            })
+            window.removeEventListener("scroll", page2Scroll)
+            window.addEventListener("scroll", usDeathCount)
+        }, 1000)
+        
+    } if(toElem.id == "page4"){
+        displayTotalDeaths()
+        setTimeout(() => {
+            window.scrollTo(0,0)
+
+            page3Canvas = document.getElementById("canvas2")
+            ctx = page3Canvas.getContext("2d")
+            page3Canvas.width = window.innerWidth
+            page3Canvas.height = document.getElementsByClassName("padding")[0].getBoundingClientRect().bottom
+            init2()
+            animate2()
+            page3Canvas.addEventListener("mousemove", (e)=>{
+                mouseX = e.clientX
+                mouseY = e.clientY + window.scrollY
+            })
+            page3Canvas.addEventListener("mouseleave", (e)=>{
+                mouseX = null
+                mouseY = null
+            })
+            window.removeEventListener("scroll", usDeathCount)
+        }, 1000);
     }
 }
 
@@ -114,7 +141,7 @@ function span1Anim(){
             span1.innerHTML = (Math.round(currSpan1 * 10) / 10) + ".0 million"
         } else
             span1.innerHTML = (Math.round(currSpan1 * 10) / 10) + " million"
-        currSpan1 += 0.1
+        currSpan1 += 0.2
     } else{
         clearInterval(span1Interval)
     }
@@ -300,52 +327,70 @@ function animate(){
     requestAnimationFrame(animate)
 }
 
-var countryids = ["poland", "france", "yugoslavia", "germany", "uk", "soviet-union", "hungary", "romania", "italy", "us"]
-var currYear = 1939
-function displayFigures(countryid, numDead, src){
-    for(var i = 0; i<numDead/1000; i++){
-        var img = document.createElement("img")
-        img.src = src
-        document.getElementById(countryid).appendChild(img)
+function init2(){
+    for(let i = 0; i<numParticles; i++){
+        const size = 1 + Math.random() * 3
+        const x = Math.random() * (page3Canvas.width - size)
+        const y = Math.random() * (page3Canvas.height - size)
+        const speedX = Math.random() - 0.5
+        const speedY = Math.random() - 0.5
+        
+        particles2.push((new Particle(size, x, y, speedX, speedY)))
     }
 }
 
-function clearFigures(countryid){
-    if(countryid == "all"){
-        for(var i = 0; i<countryids.length; i++){
-            document.getElementById(countryids[i]).innerHTML = ""
+function animate2(){
+    ctx.clearRect(0,0,page3Canvas.width, page3Canvas.height)
+
+    particles2.forEach((particle) =>{
+        particle.update()
+        particle.draw()
+    })
+
+    requestAnimationFrame(animate2)
+}
+
+
+
+function displayTotalDeaths(){
+    var countriesWrapper = document.getElementsByClassName("country-wrapper")[0]
+    var countries = Array.from(countriesWrapper.children)
+
+    var userWidth = window.innerWidth
+    var userHeight = window.innerHeight
+
+    for(var i = countries.length -1; i>0; i--){
+        var j = Math.floor(Math.random() * (i+1))
+        var temp = countries[i]
+
+        countries[i] = countries[j]
+        countries[j] = temp
+
+    }
+    countries.forEach(el => countriesWrapper.appendChild(el))
+
+
+    var ratio = 23000000/(userWidth*.95)
+
+    for(var i = 0; i<countries.length; i++){
+        var deaths = Number(countries[i].getAttribute("value"))/ratio
+        countries[i].style.width = deaths + "px"
+        countries[i].style.height = deaths + "px"
+        countries[i].style.borderRadius = deaths/2 + "px"
+
+
+        if((countries[i].getBoundingClientRect().right - 400) < 0){
+            countries[i].style.left = Math.floor(Math.random() * (userWidth - countries[i].getBoundingClientRect().right - 400)) + "px"
+        } else
+            countries[i].style.left = Math.floor(Math.random() * (userWidth-countries[i].getBoundingClientRect().right)) + "px"
+        if(countries[i].classList.contains("USSR")){
+            countries[i].style.left = 0
         }
-    } else
-        document.getElementById(countryid).innerHTML = ""
-}
 
 
-function changeYear(amount){
-    currYear += amount
-    document.getElementById("year-counter").innerHTML = "Year: " + currYear
-    if(currYear <= 1939)
-        document.getElementsByClassName("back-button")[0].style.visibility = "hidden"
-    else if(currYear >= 1945)
-        document.getElementsByClassName("forward-button")[0].style.visibility = "hidden"
-    else{
-        document.getElementsByClassName("back-button")[0].style.visibility = ""
-        document.getElementsByClassName("forward-button")[0].style.visibility = ""
     }
-
-    clearFigures("all")
-    if(currYear == 1939){
-        displayFigures("poland", 266000, "polish.png")
-        displayFigures("france", 2000, "polish.png")
-        displayFigures("germany",(17269 + 552), "polish.png")
-        displayFigures("soviet-union",(3000 + 5000 + 2000 + 4000 + 20000 + 10000 + 4500 + 100), "polish.png")
-    } else if(currYear == 1940){
-        displayFigures("poland", (358 + 7000 + 23000 + 11000 + 20000), "polish.png")
-        displayFigures("france", (85310), "polish.png")
-        displayFigures("germany", (5296 + 27074 + 5296), "polish.png")
-    }
+    
 }
-
 
 //page 4
-changeYear(0)
-window.scrollTo(0,0)
+

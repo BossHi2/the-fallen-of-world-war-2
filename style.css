@@ -10,7 +10,7 @@ html, body{
     margin: 0px;
 }
 
-#page1{
+#page1, #page5{
     overflow-y: hidden;
 }
 
@@ -52,7 +52,7 @@ html, body{
     background-color: #385A5C;
     transition: 250ms;
     line-height: 0px;
-    z-index: 1;
+    z-index: 50;
 }
 
 .button-wrapper button:hover{
@@ -172,16 +172,16 @@ html, body{
 
 
 #page3{
+    
+    height: calc(8388px + 1200px);  
+}
+.us-deaths{
     background-position-y: -25px;
     background-position-x: -25px;
     background-size: 50px 50px;
     background-image:
         linear-gradient(to right, #171717 1px, transparent 1px),
         linear-gradient(to bottom, #171717 1px, transparent 1px);  
-    height: calc(8388px + 1000px);  
-}
-.us-deaths{
-    background-color: #385a5c3b;
     width: 80vw;
     height: 8388px;
     left: 10vw;
@@ -244,6 +244,12 @@ html, body{
     z-index: 1;
     top: 0;
 }
+#canvas2{
+    position: absolute;
+    display: block;
+    z-index: 1;
+    top: 0;
+}
 #page3 .total-death-count{
     font-size: 200px;
     font-weight: 900;
@@ -257,32 +263,62 @@ html, body{
 }
 
 
-#page4 .line{
-    height: 5px;
-    width: 100%;
-    background-color: white;
+#page4{
+    height: 100%;
 }
-.figure-holder{
-    height: max-content;
-}
-.figure-holder img{
-    height: 20px;
-}
-.country-label-holder{
-    text-align: center;
-    
+.country-wrapper{
+    width: 100vw;
 }
 
-.label-wrapper{
-    display: grid;
-    grid-template-columns: 150px 150px 150px 150px 150px 150px 150px 150px 150px 150px;
-    gap: 20px;
+.country-wrapper div{
+    margin: 50px;
+    left: 0px;
+    top: 0px;
+    position: relative;
+    
 }
-.figure-wrapper{
-    display: grid;
-    grid-template-columns: 150px 150px 150px 150px 150px 150px 150px 150px 150px 150px;
-    gap: 20px;
+.allied{
+    background: #4F7379;
+    background: radial-gradient(circle, rgba(79, 115, 121, 1) 0%, rgba(56, 90, 92, 1) 95%);
 }
+.axis{
+    background: #FEF2AB;
+    background: radial-gradient(circle, rgba(254, 242, 171, 1) 0%, rgba(229, 208, 152, 1) 95%);
+}
+.country h1{
+    position: relative;
+    font-size: 15px;
+    width: max-content; 
+    
+}
+.countryLabelCenter{
+    text-align: center;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%);
+    color: white;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+}
+
+
+.padding{
+    width: 100vw;
+    position: relative;
+    height: 50px;
+}
+.countryLabelRight{
+    left: 100%; 
+    top: 50%;
+    transform: translate(0,-50%);
+}
+
+.horizontalCenter{
+    left: 50%;
+    transform: translate(0,-50%);
+    position: relative;
+    z-index: 10;
+}
+
 /*colors:
 #385A5C <- darker blue
 #4F7379 <- lighter blue
